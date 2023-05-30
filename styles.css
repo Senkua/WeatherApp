@@ -1,14 +1,25 @@
-body {
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
     font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
   }
   
   header {
-    background-color: #f0f0f0;
+    background-color: #333;
     padding: 20px;
   }
   
   header h1 {
     margin: 0;
+    color: #fff;
+    font-size: 24px;
   }
   
   #cityForm {
@@ -16,24 +27,67 @@ body {
   }
   
   #cityInput {
-    padding: 5px;
+    padding: 8px;
+    width: 200px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
   }
   
-  #currentWeather {
-    margin-top: 20px;
+  #cityInput:focus {
+    outline: none;
   }
   
-  #forecast {
-    margin-top: 20px;
+  #cityInput::placeholder {
+    color: #aaa;
+  }
+  
+  button[type="submit"] {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #666;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #555;
+  }
+  
+  main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+  }
+  
+  section {
+    margin-bottom: 20px;
+  }
+  
+  section h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  
+  section p {
+    margin-bottom: 5px;
   }
   
   footer {
-    background-color: #f0f0f0;
+    background-color: #333;
     padding: 20px;
   }
   
   footer h2 {
     margin: 0;
+    color: #fff;
+    font-size: 18px;
   }
   
   #searchHistory {
@@ -45,8 +99,13 @@ body {
   #searchHistory li {
     cursor: pointer;
     margin-bottom: 5px;
+    padding: 8px;
+    background-color: #f5f5f5;
+    color: #333;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
   }
   
   #searchHistory li:hover {
-    text-decoration: underline;
+    background-color: #e5e5e5;
   }
