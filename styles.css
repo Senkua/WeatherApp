@@ -1,15 +1,18 @@
+/* Global styles */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
   
+  /* Body styles */
   body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Update the font family */
     background-color: #f5f5f5;
     color: #333;
   }
   
+  /* Header styles */
   header {
     background-color: #333;
     padding: 20px;
@@ -21,6 +24,7 @@
     font-size: 24px;
   }
   
+  /* City form styles */
   #cityForm {
     margin-top: 10px;
   }
@@ -56,6 +60,7 @@
     background-color: #555;
   }
   
+  /* Main content styles */
   main {
     max-width: 800px;
     margin: 20px auto;
@@ -78,6 +83,7 @@
     margin-bottom: 5px;
   }
   
+  /* Footer styles */
   footer {
     background-color: #333;
     padding: 20px;
@@ -89,6 +95,7 @@
     font-size: 18px;
   }
   
+  /* Search history styles */
   #searchHistory {
     margin-top: 10px;
     list-style-type: none;
@@ -109,16 +116,44 @@
     background-color: #e5e5e5;
   }
   
+  /* Forecast day styles */
   .forecast-day {
     border: 1px solid #ccc;
     padding: 10px;
     border-radius: 4px;
+    transition: transform 0.3s ease;
   }
   
   .forecast-day p {
     margin-bottom: 5px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Update the font family */
   }
   
   .forecast-day img {
     margin-bottom: 10px;
+  }
+  
+  .forecast-day:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Forecast container styles */
+  #forecastContainer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /* Forecast item styles */
+  .forecast-item {
+    width: calc(20% - 20px);
+    margin: 10px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+  }
+  
+  .forecast-item:hover {
+    transform: scale(1.05);
   }

@@ -2,7 +2,7 @@ const API_KEY = '1904a21f6572a52a0bb24464d5c491f4';
 const cityForm = document.getElementById('cityForm');
 const cityInput = document.getElementById('cityInput');
 const currentWeather = document.getElementById('currentWeather');
-const forecast = document.getElementById('forecast');
+const forecastContainer = document.getElementById('forecastContainer');
 const searchHistory = document.getElementById('searchHistory');
 let cities = [];
 
@@ -33,19 +33,20 @@ function displayCurrentWeather(data) {
 
 // Display forecast
 function displayForecast(data) {
-  forecast.innerHTML = '<h2>5-Day Forecast</h2>';
+  forecastContainer.innerHTML = '';
   for (let i = 0; i < data.list.length; i += 8) {
     const forecastData = data.list[i];
     const forecastDate = new Date(forecastData.dt_txt).toLocaleDateString();
-    forecast.innerHTML += `
-      <div>
-        <p>Date: ${forecastDate}</p>
-        <img src="http://openweathermap.org/img/w/${forecastData.weather[0].icon}.png" alt="${forecastData.weather[0].description}">
-        <p>Temperature: ${forecastData.main.temp} °C</p>
-        <p>Humidity: ${forecastData.main.humidity}%</p>
-        <p>Wind Speed: ${forecastData.wind.speed} m/s</p>
-      </div>
+    const forecastItem = document.createElement('div');
+    forecastItem.classList.add('forecast-item');
+    forecastItem.innerHTML = `
+      <p>Date: ${forecastDate}</p>
+      <img src="http://openweathermap.org/img/w/${forecastData.weather[0].icon}.png" alt="${forecastData.weather[0].description}">
+      <p>Temperature: ${forecastData.main.temp} °C</p>
+      <p>Humidity: ${forecastData.main.humidity}%</p>
+      <p>Wind Speed: ${forecastData.wind.speed} m/s</p>
     `;
+    forecastContainer.appendChild(forecastItem);
   }
 }
 
