@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  header {
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  #cityForm {
+    margin-top: 10px;
+  }
+  
+  #cityInput {
+    padding: 5px;
+  }
+  
+  #currentWeather {
+    margin-top: 20px;
+  }
+  
+  #forecast {
+    margin-top: 20px;
+  }
+  
+  footer {
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+  
+  footer h2 {
+    margin: 0;
+  }
+  
+  #searchHistory {
+    margin-top: 10px;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #searchHistory li {
+    cursor: pointer;
+    margin-bottom: 5px;
+  }
+  
+  #searchHistory li:hover {
+    text-decoration: underline;
+  }
