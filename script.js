@@ -6,6 +6,17 @@ const forecastContainer = document.getElementById('forecastContainer');
 const searchHistory = document.getElementById('searchHistory');
 let cities = [];
 
+// Retrieve cities from local storage
+if (localStorage.getItem('cities')) {
+  cities = JSON.parse(localStorage.getItem('cities'));
+  displaySearchHistory();
+}
+
+// Save cities to local storage
+function saveToLocalStorage() {
+  localStorage.setItem('cities', JSON.stringify(cities));
+}
+
 // Fetch weather data from API
 async function getWeatherData(city) {
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
@@ -37,16 +48,15 @@ function displayForecast(data) {
   for (let i = 0; i < data.list.length; i += 8) {
     const forecastData = data.list[i];
     const forecastDate = new Date(forecastData.dt_txt).toLocaleDateString();
-    const forecastItem = document.createElement('div');
-    forecastItem.classList.add('forecast-item');
-    forecastItem.innerHTML = `
-      <p>Date: ${forecastDate}</p>
-      <img src="http://openweathermap.org/img/w/${forecastData.weather[0].icon}.png" alt="${forecastData.weather[0].description}">
-      <p>Temperature: ${forecastData.main.temp} °C</p>
-      <p>Humidity: ${forecastData.main.humidity}%</p>
-      <p>Wind Speed: ${forecastData.wind.speed} m/s</p>
+    forecastContainer.innerHTML += `
+      <div class="forecast-day">
+        <p>Date: ${forecastDate}</p>
+        <img src="http://openweathermap.org/img/w/${forecastData.weather[0].icon}.png" alt="${forecastData.weather[0].description}">
+        <p>Temperature: ${forecastData.main.temp} °C</p>
+        <p>Humidity: ${forecastData.main.humidity}%</p>
+        <p>Wind Speed: ${forecastData.wind.speed} m/s</p>
+      </div>
     `;
-    forecastContainer.appendChild(forecastItem);
   }
 }
 
@@ -68,6 +78,7 @@ cityForm.addEventListener('submit', async function(event) {
     displayCurrentWeather(weatherData);
     displayForecast(forecastData);
     cities.push(city);
+    saveToLocalStorage();
     displaySearchHistory();
     cityInput.value = '';
   }
